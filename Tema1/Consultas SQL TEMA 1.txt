@@ -1,0 +1,15 @@
+SELECT nombre FROM producto;
+SELECT nombre,precio FROM producto;
+SELECT * FROM producto;
+SELECT nombre,precio, FORMAT(precio*1.05,2)AS 'precio en dólares' FROM producto;
+SELECT nombre AS 'nombre del producto',precio AS 'euros', FORMAT(precio*1.05,2)AS 'dólares norteamericanos' FROM producto;
+SELECT UCASE(nombre)AS 'NOMBRE',precio from producto;
+SELECT LCASE(nombre)AS 'nombre',precio from producto;
+SELECT nombre,SUBSTR(UCASE(nombre),1,2) FROM fabricante;
+SELECT nombre,ROUND(precio,1) FROM producto;
+SELECT nombre,TRUNCATE(precio,0) FROM producto;
+SELECT codigo_fabricante FROM producto;
+SELECT DISTINCT(codigo_fabricante) FROM producto;
+SELECT nombre FROM fabricante ORDER BY nombre ASC;
+SELECT nombre FROM fabricante ORDER BY nombre DESC;
+SELECT nombre,nombre FROM producto ORDER BY nombre ASC, nombre DESC;
