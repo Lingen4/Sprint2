@@ -34,3 +34,6 @@ SELECT fabricante.nombre,fabricante.codigo FROM fabricante INNER JOIN producto O
 SELECT fabricante.nombre, producto.nombre FROM fabricante LEFT JOIN producto ON fabricante.codigo = producto.codigo_fabricante;
 SELECT fabricante.nombre, producto.nombre FROM fabricante LEFT JOIN producto ON fabricante.codigo = producto.codigo_fabricante WHERE producto.codigo_fabricante IS NULL;
 SELECT fabricante.nombre, producto.nombre FROM fabricante LEFT JOIN producto ON fabricante.codigo = producto.codigo_fabricante WHERE fabricante.nombre = 'Lenovo';
+SELECT fabricante.nombre,producto.precio,producto.nombre FROM fabricante LEFT JOIN producto ON fabricante.codigo = producto.codigo_fabricante WHERE producto.precio = (SELECT MAX(producto.precio) FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE fabricante.nombre = 'Lenovo');
+SELECT producto.nombre,producto.precio FROM producto RIGHT JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo WHERE fabricante.nombre = 'Lenovo' HAVING MAX(producto.precio);
+SELECT producto.nombre,producto.precio FROM producto RIGHT JOIN fabricante ON producto.codigo_fabricante=fabricante.codigo WHERE fabricante.nombre = 'Hewlett-Packard' HAVING MIN(producto.precio);
